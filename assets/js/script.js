@@ -6,6 +6,11 @@ var taskFormHandler = function (event) {
     event.preventDefault();
     var taskNameInput = document.querySelector("input[name='task-name']").value;
     var taskTypeInput = document.querySelector("select[name='task-type']").value;
+    if (!taskNameInput || !taskTypeInput) {
+        alert("You need to fill out the task form!");
+        return false; //return just gets you out before running the rest of the function, false seems redundant but im sure its there for a reason
+    }
+    formE1.reset();
     var taskDataObj = {
         name: taskNameInput,
         type: taskTypeInput
